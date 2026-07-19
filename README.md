@@ -8,13 +8,13 @@ Powered by a local reasoning LLM via Ollama and tracked transparently with MLflo
 
 ## 🏗️ System Architecture & Workflow
 
-The system is architected as a robust **ReAct (Reasoning + Action)** pattern utilizing LangGraph. Instead of relying on open-ended agentic autonomy, the system operates on strict deterministic validation and reporting logic:
+The system is architected as a robust **ReAct (Reasoning + Action)** pattern utilizing Langchain. Instead of relying on open-ended agentic autonomy, the system operates on strict deterministic validation and reporting logic:
 
 ```
 [Trigger Scan] ──> [Fetch Active Orders (SQLite)]
         │
         ▼
-[Initiate LangGraph Loop]
+[Initiate Langchain Loop]
         │
         ├──> 1. fetch_order_status
         ├──> 2. calculate_timeline_risk
