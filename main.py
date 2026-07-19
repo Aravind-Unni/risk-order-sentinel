@@ -2,7 +2,6 @@ import os
 import sqlite3
 import mlflow
 from dotenv import load_dotenv
-from langchain_groq import ChatGroq
 from langchain.agents import create_agent
 from langchain_core.messages import HumanMessage
 from langchain_ollama import ChatOllama
