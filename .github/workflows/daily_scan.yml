@@ -21,7 +21,13 @@ jobs:
         run: uv python install
 
       - name: Install dependencies
+<<<<<<< HEAD
         run: uv sync --frozen
+=======
+        run: |
+          uv venv
+          uv pip install -r requirements.txt
+>>>>>>> 895bea52bc6f993bfc629c7553b20b68959965c6
 
       - name: Initialize Mock Database
         # Because GitHub Actions provides a fresh server every time,
