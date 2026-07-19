@@ -2,7 +2,7 @@ name: Daily Risk Order Sentinel Scan
 
 on:
   schedule:
-    # Runs at 11:30 AM UTC, which translates exactly to 5:00 PM IST
+    # Runs at 12:30 PM UTC, which translates exactly to 6:00 PM IST
     - cron: '30 12 * * *'
   workflow_dispatch: # Allows you to manually click a "Run workflow" button in GitHub for testing
 
@@ -23,7 +23,9 @@ jobs:
         run: uv python install
 
       - name: Install dependencies
-        run: uv sync
+        run: |
+          uv venv
+          uv pip install -r requirements.txt
 
       - name: Initialize Mock Database
         # Because GitHub Actions provides a fresh server every time, 
