@@ -1,0 +1,37 @@
+name: Daily Risk Order Sentinel Scan
+
+on:
+  schedule:
+    # Runs at 11:30 AM UTC, which translates exactly to 5:00 PM IST
+    - cron: '30 11 * * *'
+  workflow_dispatch: # Allows you to manually click a "Run workflow" button in GitHub for testing
+
+jobs:
+  run-sentinel:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v3
+        with:
+          enable-cache: true
+
+      - name: Set up Python
+        run: uv python install
+
+      - name: Install dependencies
+        run: uv sync
+
+      - name: Initialize Mock Database
+        # Because GitHub Actions provides a fresh server every time, 
+        # you need to generate the dummy data before running the main script.
+        run: uv run src/database/setup_db.py
+
+      - name: Run Daily Risk Scan
+        env:
+          # Pulls your API keys securely from GitHub Secrets
+          GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
+        run: uv run main.py

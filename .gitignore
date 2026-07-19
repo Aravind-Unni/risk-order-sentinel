@@ -1,0 +1,42 @@
+
+# Python Cache & Compiled Files
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+
+# Virtual Environments
+.venv/
+venv/
+env/
+
+
+# Environment Variables
+.env
+.env.*
+
+# Local Databases & State
+*.db
+*.sqlite
+*.sqlite3
+src/database/kavya_textiles.db
+mlflow.db
+
+# MLflow Local Tracking
+mlruns/
+mlartifacts/
+
+
+# Build / Distribution
+build/
+dist/
+wheels/
+*.egg-info/
+*.egg
+
+
+# IDE & OS Specific Files
+.vscode/
+.idea/
+.DS_Store
