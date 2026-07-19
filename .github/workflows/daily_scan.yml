@@ -1,15 +1,13 @@
 name: Daily Risk Order Sentinel Scan
-
 on:
   schedule:
-    # Runs at 11:30 AM UTC, which translates exactly to 5:00 PM IST
-    - cron: '30 11 * * *'
+    # Runs at 12:30 PM UTC, which translates exactly to 6:00 PM IST
+    - cron: '30 12 * * *'
   workflow_dispatch: # Allows you to manually click a "Run workflow" button in GitHub for testing
 
 jobs:
   run-sentinel:
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -23,10 +21,10 @@ jobs:
         run: uv python install
 
       - name: Install dependencies
-        run: uv sync
+        run: uv sync --frozen
 
       - name: Initialize Mock Database
-        # Because GitHub Actions provides a fresh server every time, 
+        # Because GitHub Actions provides a fresh server every time,
         # you need to generate the dummy data before running the main script.
         run: uv run src/database/setup_db.py
 
