@@ -36,8 +36,8 @@ The system is architected as a robust **ReAct (Reasoning + Action)** pattern uti
 
 ## 🛠️ Technology Stack
 
-* **Orchestration:** LangGraph (Prebuilt ReAct compiler)
-* **Local Inference:** Ollama (`ornith:35b` / `ornith:9b`)
+* **Orchestration:** Langchain (ReAct compiler)
+* **LLM:** Groq API (llama-3.3-70b-versatile)
 * **Tracking & Observability:** MLflow (Local SQLite tracking backend)
 * **Package Management:** `uv` (Fast, isolated Python environment management)
 * **Database:** SQLite3
