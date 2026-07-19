@@ -1,8 +1,8 @@
 name: Daily Risk Order Sentinel Scan
 on:
   schedule:
-    # Runs at 12:30 PM UTC, which translates exactly to 6:00 PM IST
-    - cron: '30 12 * * *'
+    # Runs at 4:30 AM UTC, which translates exactly to 10:00 AM IST
+    - cron: '30 4 * * *'
   workflow_dispatch: # Allows you to manually click a "Run workflow" button in GitHub for testing
 
 jobs:
