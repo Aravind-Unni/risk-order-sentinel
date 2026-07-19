@@ -1,6 +1,6 @@
+langchain-groq
 langchain
 mlflow
 sendgrid
 python-dotenv
 pandas
-langchain-ollama

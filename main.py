@@ -2,9 +2,9 @@ import os
 import sqlite3
 import mlflow
 from dotenv import load_dotenv
+from langchain_groq import ChatGroq
 from langchain.agents import create_agent
 from langchain_core.messages import HumanMessage
-from langchain_ollama import ChatOllama
 
 # Import the tools bundled in src/tools/__init__.py
 from src.tools import ALL_TOOLS
@@ -54,8 +54,8 @@ and notes that drove your conclusion.
 
 def create_sentinel_agent():
     """Initializes the LangGraph ReAct agent."""
-    llm = ChatOllama(
-        model="ornith:35b",
+    llm = ChatGroq(
+        model="llama-3.1-8b-instant",
         temperature=0.1, 
         max_tokens=1024
     )
