@@ -55,7 +55,7 @@ and notes that drove your conclusion.
 def create_sentinel_agent():
     """Initializes the LangGraph ReAct agent."""
     llm = ChatGroq(
-        model="llama-3.1-8b-instant",
+        model="llama-3.3-70b-versatile",
         temperature=0.1, 
         max_tokens=1024
     )
