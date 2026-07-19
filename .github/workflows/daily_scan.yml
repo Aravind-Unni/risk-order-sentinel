@@ -34,6 +34,6 @@ jobs:
           SENDGRID_API_KEY: ${{ secrets.SENDGRID_API_KEY }}
           SENDER_EMAIL: ${{ secrets.SENDER_EMAIL }}
           RECEIVER_EMAIL: ${{ secrets.RECEIVER_EMAIL }}
-          # This tells MLflow to log to a local temp folder, preventing the network crash
-          MLFLOW_TRACKING_URI: "file:./mlruns"
+          # Changed to a local SQLite database to bypass the file-store deprecation error
+          MLFLOW_TRACKING_URI: "sqlite:///mlflow.db"
         run: uv run main.py
